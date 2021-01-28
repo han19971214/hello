@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .w {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        
+        body {
+            background: url('images/login_bg.jpg') no-repeat center top;
+            background-size: cover;
+        }
+        
+        .logo {
+            width: 146px;
+            height: 60px;
+            margin-top: 50px;
+        }
+        
+        .content {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background-color: azure;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .content input {
+            display: block;
+            margin: 40px auto;
+            border: 1px solid #ccc;
+            height: 50px;
+            width: 400px;
+        }
+        
+        .content button {
+            display: block;
+            margin: 40px auto;
+            height: 50px;
+            width: 400px;
+            background-color: darkturquoise;
+            color: floralwhite;
+        }
+        
+        .biaoti {
+            width: 170px;
+            height: 25px;
+            margin: 10px auto;
+        }
+        
+        a {
+            position: absolute;
+            right: 0;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .black {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+
+
+        <div class="content">
+            <div class="biaoti"><img src="images/login_title.png" alt=""></div>
+            <!-- 登录模块 -->
+            <div class="dl">
+                <input type="text" name="" id="" value="请输入账号">
+                <input type="text" name="" id="" value="请输入密码">
+                <button type="submit"> 登录</button>
+            </div>
+            <!-- 注册模块 -->
+            <div class="zx" style="display: none;">
+                <input type="text" name="" id="" value="请输入账号">
+                <input type="text" name="" id="" value="请输入密码">
+                <button type="submit"> 注册</button>
+            </div>
+
+            <a href="#">去注册</a>
+        </div>
+
+
+
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function() {
+
+            $('.dl').find('input').eq(0).blur(function() {
+                console.log(1);
+                if ($(this).val().trim() !== '') {
+                    $(this).val()
+                } else {
+                    $(this).val('请输入正确的账号').addClass('red')
+
+                }
+
+
+            })
+
+
+
+            $('.dl').find('input').eq(0).focus(function() {
+                $(this).val('')
+                $(this).removeClass('red')
+                console.log(this);
+            })
+
+
+
+            $('.dl').find('input').eq(1).blur(function() {
+                if ($(this).val().trim() !== '') {
+                    $(this).val()
+                } else {
+                    $(this).val('请输入真确的密码').addClass('red')
+
+                }
+            })
+
+            var flag = true
+            $('a').click(function() {
+
+                if (flag == true) {
+                    $('.zx').show()
+                    $('.dl').hide()
+                    $(this).html('去登录')
+                    flag = false
+
+                } else if (flag == false) {
+                    $('.dl').show()
+                    $('.zx').hide()
+                    $(this).html('去注册')
+                    flag = true
+                }
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        })
+    </script>
+
+</body>
+
+</html>
